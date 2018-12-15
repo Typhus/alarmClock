@@ -1,37 +1,17 @@
 package ru.taptap.journeyalarmclock.ui
 
-import android.Manifest
-import android.support.v7.app.AppCompatActivity
-
+import android.annotation.SuppressLint
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.util.Log
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.PresenterType
-import com.arellomobile.mvp.presenter.ProvidePresenter
-import com.arellomobile.mvp.presenter.ProvidePresenterTag
-import com.google.android.gms.awareness.Awareness
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.taptap.journeyalarmclock.R
-import ru.taptap.journeyalarmclock.R.id.rootView
 import ru.taptap.journeyalarmclock.presentation.presenter.DialogPresenter
 import ru.taptap.journeyalarmclock.presentation.view.DialogView
-import ru.taptap.journeyalarmclock.utils.Prefs
-import com.google.android.gms.common.api.GoogleApiClient
-import android.content.pm.PackageManager
-import android.Manifest.permission
-import android.Manifest.permission.ACCESS_FINE_LOCATION
-import android.annotation.SuppressLint
-import android.support.v4.content.ContextCompat
-import android.support.annotation.NonNull
-import com.google.android.gms.awareness.fence.FenceUpdateRequest
-import android.content.IntentFilter
-import android.app.PendingIntent
-import android.content.Intent
-import com.google.android.gms.awareness.fence.AwarenessFence
-import com.google.android.gms.awareness.fence.LocationFence
-import com.google.android.gms.awareness.fence.DetectedActivityFence
 
 
 class MainActivity : MvpAppCompatActivity(), DialogView {
@@ -58,6 +38,7 @@ class MainActivity : MvpAppCompatActivity(), DialogView {
             startAwareness()
         }
     }
+
     val REQUEST_PERMISSION_RESULT_CODE = 42
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
                                             grantResults: IntArray) {
